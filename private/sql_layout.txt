@@ -1,0 +1,239 @@
+tokens:
+	id
+	name
+	image
+	attack
+	defense
+	element_id
+	rarity
+	direction_id
+
+direction
+	id
+	top_right
+	d_right
+	bottom_right
+	bottom_left
+	d_left
+	top_left
+
+element:
+	id
+	name
+	image
+	beats
+	loses
+	
+admin_user
+	admin_id
+	login_id
+	email
+	password
+	status
+
+create table status (
+	status_id int(10) not null auto_increment,
+	status_name char(25) not null,
+	
+	primary key(status_id)
+);
+insert into status (status_name) values ('active');
+insert into status (status_name) values ('inactive');
+
+
+create table admin_user (
+	admin_id int(10) not null auto_increment,
+	login_id char(25) not null,
+	email char(100) not null,
+	password char(255) not null,
+	status_id int(1) not null,
+	deleted int(1) not null,
+	
+	primary key (admin_id)
+);
+
+insert into admin_user (login_id,email,password,status_id,deleted) values ('ezacharyk','zachary@divineknightgaming.com','b9ecd59e44131ddc0185be2bca593a4d037c9495b69165016b397f1ca8cec13bbb1aa478cf6d05369782c06c85e2f864b6ec77bec89e694b0f1374d73aa197cb',1,0);
+
+create table direction (
+	direction_id int(10) not null auto_increment,
+	top_right boolean not null,
+	d_right boolean not null,
+	bottom_right boolean not null,
+	bottom_left boolean not null,
+	d_left boolean not null,
+	top_left boolean not null,
+	
+	primary key (direction_id)
+);
+
+
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,0,0,0,0,0);
+
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,0,0,0,0,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,1,0,0,0,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,0,1,0,0,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,0,0,1,0,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,0,0,0,1,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,0,0,0,0,1);
+
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,1,0,0,0,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,1,1,0,0,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,0,1,1,0,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,0,0,1,1,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,0,0,0,1,1);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,0,0,0,0,1);
+
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,0,1,0,0,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,1,0,1,0,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,0,1,0,1,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,0,0,1,0,1);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,0,0,0,1,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,1,0,0,0,1);
+
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,0,0,1,0,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,1,0,0,1,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,0,1,0,0,1);
+
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,1,1,0,0,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,1,1,1,0,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,0,1,1,1,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,0,0,1,1,1);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,0,0,0,1,1);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,1,0,0,0,1);
+
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,1,0,1,0,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,1,1,0,1,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,0,1,1,0,1);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,0,0,1,1,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,1,0,0,1,1);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,0,1,0,0,1);
+
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,1,0,0,1,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,1,1,0,0,1);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,0,1,1,0,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,1,0,1,1,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,0,1,0,1,1);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,0,0,1,0,1);
+
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,0,1,0,1,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,1,0,1,0,1);
+
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,1,1,1,0,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,1,1,1,1,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,0,1,1,1,1);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,0,0,1,1,1);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,1,0,0,1,1);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,1,1,0,0,1);
+
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,1,1,0,1,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,1,1,1,0,1);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,0,1,1,1,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,1,0,1,1,1);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,0,1,0,1,1);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,1,0,1,0,1);
+
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,1,0,1,1,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,1,1,0,1,1);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,0,1,1,0,1);
+
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,1,1,1,1,0);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (0,1,1,1,1,1);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,0,1,1,1,1);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,1,0,1,1,1);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,1,1,0,1,1);
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,1,1,1,0,1);
+
+insert into direction (top_right,d_right,bottom_right,bottom_left,d_left,top_left) values (1,1,1,1,1,1);
+
+create table element (
+	element_id int(2) not null,
+	name char(25) not null,
+	image char(50) not null,
+	beats int(2) not null,
+	loses int(2) not null,
+	
+	primary key(element_id)
+);
+
+insert into element (element_id, name, image, beats, loses) values (0, 'None', '', 0, 0);
+insert into element (element_id, name, image, beats, loses) values (1, 'Water', 'water.png', 2, 4);
+insert into element (element_id, name, image, beats, loses) values (2, 'Fire', 'fire.png', 3, 1);
+insert into element (element_id, name, image, beats, loses) values (3, 'Air', 'air.png', 4, 2);
+insert into element (element_id, name, image, beats, loses) values (4, 'Earth', 'earth.png', 1, 3);
+
+create table rarity(
+	rarity_id int(2) not null,
+	name char(50) not null,
+	
+	primary key(rarity_id)
+);
+
+insert into rarity (rarity_id, name) values (1,'Common');
+insert into rarity (rarity_id, name) values (2,'Uncommon');
+insert into rarity (rarity_id, name) values (3,'Rare');
+insert into rarity (rarity_id, name) values (99,'Impossible');
+
+create table token_class(
+	class_id int(2) not null,
+	name char(50) not null,
+	
+	primary key(class_id)
+);
+
+insert into token_class (class_id, name) values (1,'Hero');
+insert into token_class (class_id, name) values (2,'NPC');
+insert into token_class (class_id, name) values (3,'Monster');
+insert into token_class (class_id, name) values (4,'Boss');
+
+create table token (
+	token_id int(10) not null auto_increment,
+	name char(50) not null,
+	image char(100) not null,
+	attack int(2) not null,
+	defense int(2) not null,
+	element_id int(2) not null,
+	rarity_id int(1) not null,
+	direction_id int(10) not null,
+	class_id int(2) not null,
+	cost int(10) not null,
+	deleted int(1) not null,
+	
+	primary key (token_id)
+);
+
+create table player(
+	player_id int(22) not null auto_increment,
+	user_name char(50) not null,
+	email char(100) not null,
+	password char(255) not null,
+	status_id int(1) not null,
+	deleted int(1) not null,
+	
+	primary key (player_id)
+);
+
+create table player_stats (
+	player_id int(22) not null,
+	level int(10) not null,
+	experience int(22) not null,
+	coins int(10) not null,
+	wins int(10) not null,
+	losses int(10) not null,
+	draws int(10) not null,
+	player_image char(50)
+);
+
+create table inventory (
+	player_id int(22) not null,
+	token_id int(10) not null,
+	quantity int(10) not null
+);
+
+
+
+
+
+
+
+
+
